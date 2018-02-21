@@ -1,40 +1,57 @@
 <!doctype html>
 
 <html>
-<head>
-	<title>HCI Project Portfolio</title>	
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="/css/bootstrap.min.css" rel="stylesheet">
-	<link href="/css/bootstrap-theme.min.css" rel="stylesheet">
-	<link href="/css/introHCI.css" rel="stylesheet">
-  
-</head>
+    <head>
+        <title>HCI Project Portfolio</title>	
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/css/bootstrap-theme.min.css" rel="stylesheet">
+        <link href="/css/introHCI.css" rel="stylesheet">
 
-<body>
-	<div class="container">
-		<div class="jumbotron">
-			<h1>Michael Bernstein</h1>
-			<p>human-computer interaction &middot; social computing &middot; crowdsourcing</p>
-		</div>
+    </head>
 
-		<h4>Projects</h4>
-		{{#each projects}}
-			<div class="project" id="{{id}}">
-				<div class="thumbnail">
-					<a href="/project/{{id}}">
-						<img src="images/{{image}}" alt="Lorem Pixel image" class="img-responsive">
-						<h4>{{title}}</h4>
-					</a>
-					<div class="likeCtr"><button class="btn btn-default likeBtn">Like</button></div>
-					<div class="details"></div>
-				</div>
-			</div>
-		{{/each}}
+    <body>
+        <div class="container">
+            <div class="jumbotron">
+                <h1>Michael Bernstein</h1>
+                <p>human-computer interaction &middot; social computing &middot; crowdsourcing</p>
+            </div>
+
+            <h4>Projects</h4>
+            {{#if viewAlt}}
+            <div>
+                Min! <button id="like" class="likeBtn">Like</button>
+            </div>
+            {{else}}
+            {{#each projects}}
+            <div class="project" id="{{id}}">
+                <div class="thumbnail">
+                    <a href="/project/{{id}}">
+                        <img src="images/{{image}}" alt="Lorem Pixel image" class="img-responsive">
+                        <h4>{{title}}</h4>
+                    </a>
+                    <div class="likeCtr"><button id="like" class="btn btn-default likeBtn">Like</button></div>
+                    <div class="details"></div>
+                </div>
+            </div>
+            {{/each}}
+            {{/if}}
 
 
-	<script src="https://code.jquery.com/jquery.js"></script>
-	<script src="/js/bootstrap.min.js"></script>
-	<script src="/js/introHCI.js"></script>
-</body>
+
+            <script src="https://code.jquery.com/jquery.js"></script>
+            <script src="/js/bootstrap.min.js"></script>
+            <script src="/js/introHCI.js"></script>
+            <!-- Global site tag (gtag.js) - Google Analytics -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114570625-1"></script>
+            <script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'UA-114570625-1');
+            </script>
+
+    </body>
 </html>
